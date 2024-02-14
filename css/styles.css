@@ -149,9 +149,8 @@ body {
       }
     }
     .services__section-txt {
-      width: 50%;
       text-wrap: balance;
-      padding-left: 3.5rem;
+      text-align: center;
     }
   }
 }
@@ -164,7 +163,7 @@ body {
   border: 1px solid var(--white);
   box-shadow: 0px 5px 10px 0px var(--black);
   padding: 3rem 1.5rem;
-  background: linear-gradient(45deg, var(--gray) 0%, var(--white) 40%);
+  background: var(--white);
   &.card--transparent {
     background: rgba(255, 255, 255, 0.7);
     align-items: center;
@@ -223,6 +222,8 @@ body {
     width: 70%;
     .work__section-img {
       width: 100%;
+      object-fit: cover;
+      object-position: center;
       height: 500px;
       box-shadow: 0px 0px 20px 0px var(--black);
     }
