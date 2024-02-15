@@ -1,5 +1,6 @@
 :root {
   --black: #111010;
+  --lightBlack: #242323;
   --white: #f8f6f6;
   --gray: #a9a3a3;
   --darkGray: #424141;
@@ -337,6 +338,56 @@ body {
       &.testimonials__slider-btn--active {
         background-color: var(--black);
       }
+    }
+  }
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  background-color: var(--lightBlack);
+  .contact__section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding: 2rem;
+    &.contact__section--column {
+      flex-direction: column;
+      justify-content: center;
+      gap: 3rem;
+    }
+    &.contact__section--background {
+      background-image: url('../img/main-interior-design-2.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 4rem 4rem 12rem;
+    }
+    .contact__section-title {
+      width: 50%;
+      align-self: flex-start;
+      font-family: "Roboto Condensed", sans-serif;
+      font-weight: 500;
+      color: var(--black);
+      font-size: var(--fontSize-xl);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      text-wrap: pretty;
+      line-height: 1.25;
+      &.contact__section-title--white {
+        width: unset;
+        color: var(--white);
+      }
+    }
+    .contact__section-txt {
+      text-wrap: balance;
+      width: 50%;
+      font-size: var(--fontSize-xs);
+      line-height: 1.25;
     }
   }
 }
