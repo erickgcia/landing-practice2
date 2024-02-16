@@ -135,8 +135,11 @@ body {
     justify-content: center;
     gap: 2rem;
     padding-block: 2rem;
-    &.services__section--row {
+    &.services__section--cards {
       flex-direction: row;
+      @media screen and (width < 1024px) {
+        flex-direction: column;
+      }
     }
     .services__section-title {
       font-family: "Roboto Condensed", sans-serif;
@@ -179,6 +182,10 @@ body {
     width: 50%;
     bottom: 0;
     left: 25%;
+    @media screen and (width < 1024px) {
+      width: 100%;
+      left: 0;
+    }
   }
   &.card--oversize {
     position: relative;
@@ -365,6 +372,7 @@ body {
       flex-direction: column;
       justify-content: center;
       gap: 3rem;
+      padding-bottom: 4rem;
     }
     &.contact__section--background {
       background-image: url('../img/main-interior-design-2.jpg');
@@ -411,6 +419,7 @@ body {
     font-weight: 500;
     font-size: var(--fontSize-xl);
     letter-spacing: 5px;
+    text-transform: uppercase;
   }
   .location__img {
     width: 50%;
