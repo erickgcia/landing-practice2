@@ -37,6 +37,7 @@ body {
     justify-content: space-between;
     &.header__section--column {
     flex-direction: column;
+    flex-grow: 1;
     justify-content: center;
     gap: 3rem;
     }
@@ -140,7 +141,7 @@ body {
     padding-block: 2rem;
     &.services__section--cards {
       flex-direction: row;
-      @media screen and (width < 1024px) {
+      @media screen and (width <= 1024px) {
         flex-direction: column;
       }
     }
@@ -185,7 +186,7 @@ body {
     width: 50%;
     bottom: 0;
     left: 25%;
-    @media screen and (width < 1024px) {
+    @media screen and (width <= 1024px) {
       width: 100%;
       left: 0;
     }
@@ -195,10 +196,10 @@ body {
     width: 50%;
     height: 400px;
     padding-left: 3rem;
-    @media screen and (width < 850px) {
+    @media screen and (width <= 850px) {
       align-self: flex-end;
     }
-    @media screen and (width < 700px) {
+    @media screen and (width <= 700px) {
       width: 100%;
       align-self: center;
       padding: 0.5rem;
@@ -257,7 +258,7 @@ body {
   .work__section {
     position: relative;
     width: 70%;
-    @media screen and (width < 850px) {
+    @media screen and (width <= 850px) {
       width: 100%;
     }
     .work__section-img {
@@ -276,7 +277,7 @@ body {
   justify-content: space-between;
   padding: 6rem 3rem;
   background-color: #111010a8;
-  @media screen and (width < 1024px) {
+  @media screen and (width <= 1024px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -289,7 +290,7 @@ body {
     font-size: var(--fontSize-xl);
     color: var(--white);
     text-transform: uppercase;
-    @media screen and (width < 1024px) {
+    @media screen and (width <= 1024px) {
       font-size: var(--fontSize-lg);
     }
   }
@@ -298,7 +299,7 @@ body {
     flex-direction: column;
     gap: 2rem;
     width: 50%;
-    @media screen and (width < 1024px) {
+    @media screen and (width <= 1024px) {
       width: 100%;
     }
     .activities__section-txt {
@@ -328,14 +329,14 @@ body {
   gap: 3rem;
   background-color: var(--white);
   padding: 8rem 6rem 4rem;
-  @media screen and (width < 700px) {
+  @media screen and (width <= 700px) {
     padding-inline: 2rem;
   }
   .testimonials__section {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    @media screen and (width < 850px) {
+    @media screen and (width <= 850px) {
       flex-direction: column;
       gap: 3rem;
     }
@@ -349,10 +350,10 @@ body {
       letter-spacing: 5px;
       transform: rotate(270deg);
       text-transform: uppercase;
-      @media screen and (width < 1024px) {
+      @media screen and (width <= 1024px) {
         left: -107px;
       }
-      @media screen and (width < 850px) {
+      @media screen and (width <= 850px) {
         position: unset;
         transform: unset;
       }
@@ -378,11 +379,11 @@ body {
       border-bottom: 7px solid var(--orange);
       z-index: 2;
       box-shadow: 0px 0px 20px 0px var(--black);
-      @media screen and (width < 850px) {
+      @media screen and (width <= 850px) {
         top: 0;
         left: -90%;
       }
-      @media screen and (width < 700px) {
+      @media screen and (width <= 700px) {
         position: relative;
         left: 0;
         width: 100%;
@@ -420,7 +421,7 @@ body {
     justify-content: space-evenly;
     gap: 2rem;
     padding: 2rem;
-    @media screen and (width < 700px) {
+    @media screen and (width <= 700px) {
       flex-direction: column;
     }
     &.contact__section--column {
@@ -458,7 +459,7 @@ body {
       font-size: var(--fontSize-xs);
       line-height: 1.25;
       color: var(--white);
-      @media screen and (width < 700px) {
+      @media screen and (width <= 700px) {
         width: 100%;
       }
     }
@@ -493,7 +494,7 @@ body {
     gap: 2rem;
     color: var(--white);
     padding-top: 4rem;
-    @media screen and (width < 700px) {
+    @media screen and (width <= 700px) {
       flex-direction: column;
     }
     .location__wrapper {
@@ -501,7 +502,7 @@ body {
       flex-direction: column;
       gap: 1.5rem;
       width: 50%;
-      @media screen and (width < 700px) {
+      @media screen and (width <= 700px) {
         width: 100%;
       }
       &.location__wrapper--right {
