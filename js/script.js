@@ -1,1 +1,6 @@
-// Codigo de interacciones con la página web.
+const searchIcon = document.querySelector('.nav-icon')
+
+
+searchIcon.addEventListener('click', () => {
+  //toggle search container
+})
