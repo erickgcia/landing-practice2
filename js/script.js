@@ -110,7 +110,7 @@ async function setUpNewCards() {
     modifyCard(cardThree, usersData, '003');
     testCards = [...testCards, cardTwo, cardThree]
   } catch(error) {
-    console.warn(error)
+    console.log(error)
   }
 }
 
