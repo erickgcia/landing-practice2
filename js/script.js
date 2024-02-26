@@ -6,11 +6,7 @@ searchIcon.addEventListener('click', () => {
 })
 
 function toggleClass(element, cssClass) {
-  if(!element.classList.contains(cssClass)) {
-    element.classList.add(cssClass)
-  } else {
-    element.classList.remove(cssClass)
-  }
+  element.classList.toggle(cssClass)
 }
 
 const arrayLinks = ['Living Rooms', 'Discounts', 'Reviews']
@@ -60,56 +56,100 @@ removeIcon.addEventListener('click', () => {
 })
 
 const testimonialSection = document.querySelector('.testimonials__section')
-const testimonialBtns = document.querySelector('.testimonials__slider-btn')
-const testCard = document.querySelector('.card--oversize')
+const testimonialBtns = document.querySelectorAll('.testimonials__slider-btn')
+let testCards = document.querySelectorAll('.card--oversize')
 
-const users = [
+const usersData = [
   {
     id: '002',
+    cardNum: '2',
     img: '../img/client-portrait-2.jpg',
     name: 'Amanda Brooks',
     tags: 'Architect | Company Name',
-    txt: 'Lorem ipsum...'
+    txt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni, officia magnam ad odit alias unde temporibus veniam sit totam exercitationem nam ipsa fugiat non eaque doloremque quibusdam, debitis nobis reprehenderit eveniet. Enim fugiat mollitia voluptatem quisquam assumenda ad animi.'
   },
 
   {
     id: '003',
+    cardNum: '3',
     img: '../img/client-portrait-3.jpg',
     name: 'Leyla Lee',
     tags: 'Designer | Company Name',
-    txt: 'Lorem ipsum...'
+    txt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni, officia magnam ad odit alias unde temporibus veniam sit totam exercitationem nam ipsa fugiat non eaque doloremque quibusdam, debitis nobis reprehenderit eveniet. Enim fugiat mollitia voluptatem quisquam assumenda ad animi.'
   }
 ]
-const reviewCard = duplicateElement(testCard, testimonialSection)
-modifyCard(reviewCard,users,'002')
 
-const newReviewCard = duplicateElement(testCard, testimonialSection)
-modifyCard(newReviewCard,users,'003')
+const cardTwo = duplicateElement(testCards[0], testimonialSection);
+modifyCard(cardTwo, usersData, '002');
+
+const cardThree = duplicateElement(testCards[0], testimonialSection);
+modifyCard(cardThree, usersData, '003');
+testCards = [...testCards, cardTwo, cardThree]
 
 function duplicateElement(el, parent) {
-  const newElement = el.cloneNode(true)
-  parent.appendChild(newElement)
+  const newElement = el.cloneNode(true);
+  parent.appendChild(newElement);
+  newElement.style.display = 'none'
   return newElement
 }
 
-function modifyCard(card, users, id) {
+
+function modifyCard(card, data, id) {
   const img = card.children[0]
   const name = card.children[1]
   const tags = card.children[2]
   const txt = card.children[3]
 
-  const findUser = users.find(user => user.id === id)
+  const findUserData = data.find(user => user.id === id)
   
-  if(findUser) {
-    img.src = findUser.img
-    name.innerText = findUser.name
-    tags.innerText = findUser.tags
-    txt.innerText = findUser.txt
+  if(findUserData) {
+    img.src = findUserData.img
+    name.innerText = findUserData.name
+    tags.innerText = findUserData.tags
+    txt.innerText = findUserData.txt
+    cardNum = findUserData.cardNum
+    card.setAttribute('data-card', findUserData.cardNum)
   }
 }
 
-/* testimonialBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    //Slide to the next div()
-  })
-}) */
+
+function updateActiveBtn(newActiveBtn) {
+  const activeBtn = document.querySelector(".testimonials__slider-btn--active");
+
+  if (activeBtn) {
+    activeBtn.classList.remove("testimonials__slider-btn--active");
+    activeBtn.disabled = false;
+  }
+
+  if (newActiveBtn) {
+    newActiveBtn.classList.add("testimonials__slider-btn--active");
+    newActiveBtn.disabled = true;
+  }
+};
+
+function changeCard(btnData) {
+  testCards.forEach((card) => {
+    const cardData = card.getAttribute('data-card')
+    if(btnData !== cardData) {
+      card.style.display = 'none'
+    } else {
+      card.style.display = 'flex'
+    }
+  });
+}
+
+testimonialBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const btnData = btn.getAttribute('data-button');
+
+    if (!document.startViewTransition) {
+      updateActiveBtn(e.target);
+      changeCard(btnData);
+    }
+
+    document.startViewTransition(() => {
+      updateActiveBtn(e.target);
+      changeCard(btnData);
+    });
+  });
+});
