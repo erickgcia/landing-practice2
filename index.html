@@ -12,23 +12,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
   <title>Modern Design Dwellings | Minimalistic Living Spaces for Your Home</title>
 </head>
 <body>
   <header class="header">
     <section class="header__section">
-      <img class="header__logo" src="img/logo.svg" alt="Logo of the company">
+      <a href="index.html">
+        <img class="header__logo" src="img/logo.svg" alt="Logo of the company">
+      </a>
       <nav class="nav">
         <ul class="list">
-          <li class="list__item"><a class="list__link" href="#">Home</a></li>
-          <li class="list__item"><a class="list__link" href="#">Services</a></li>
+          <li class="list__item"><a class="list__link" href="index.html">Home</a></li>
+          <li class="list__item"><a class="list__link" href="services.html">Services</a></li>
           <li class="list__item"><a class="list__link" href="#">About Us</a></li>
           <li class="list__item"><a class="list__link" href="#">Projects</a></li>
           <li class="list__item"><a class="list__link" href="#">Contact</a></li>
           <li class="list__item"><a class="list__link" href="#">Support</a></li>
           <li class="list__item"><a class="list__link" href="#">FAQ</a></li>
         </ul>
-        <i class="nav-icon fa-solid fa-magnifying-glass fa-lg"></i>
+        <i class="nav__icon fa-solid fa-magnifying-glass fa-lg"></i>
       </nav>
     </section>
     <section class="header__section header__section--column">
@@ -47,7 +50,7 @@
         <h4 class="services__section-title services__section-title--small">Get to know what we can do for you</h4>
         <p class="services__section-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus fugit, reiciendis illo dolore ab quisquam fugiat nulla adipisci quos voluptas, temporibus ratione iure libero totam quod perferendis harum quibusdam perspiciatis.</p>
       </section>
-      <section class="services__section services__section--row">
+      <section class="services__section services__section--cards">
         <div class="card">
           <p class="card__title">Service <span class="card__span"># 1</span></p>
           <p class="card__txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, molestiae amet reiciendis, iusto dolor veniam perspiciatis exercitationem aliquid consequatur molestias tenetur, sunt itaque quod aperiam.</p>
@@ -88,7 +91,7 @@
     <article class="testimonials">
       <section class="testimonials__section">
         <h6 class="testimonials__title">Testimonials</h6>
-        <div class="card card--oversize">
+        <div class="card card--oversize" data-card="1">
           <img class="testimonials__img" src="img/client-portrait-1.jpg" alt="">
           <p class="card__title">Natasha Smith</p>
           <p class="card__tags">Job Position | Company Name</p>
@@ -96,9 +99,9 @@
         </div>
       </section>
       <div class="testimonials__slider">
-        <button class="testimonials__slider-btn testimonials__slider-btn--active"></button>
-        <button class="testimonials__slider-btn"></button>
-        <button class="testimonials__slider-btn"></button>
+        <button class="testimonials__slider-btn testimonials__slider-btn--active" data-button="1"></button>
+        <button class="testimonials__slider-btn" data-button="2"></button>
+        <button class="testimonials__slider-btn" data-button="3"></button>
       </div>
     </article>
     <article class="contact">
@@ -123,11 +126,19 @@
         </div>
         <div class="location__wrapper location__wrapper--right">
           <p class="location__wrapper-title">Subscribe to our newsletter</p>
-          <label for="email"><input class="location__wrapper-input" type="email" name="email" id="email" placeholder="E-MAIL"></label>
+          <label for="email"><input class="location__wrapper-input" type="email" name="email" id="email" placeholder="E-MAIL" autocomplete="off"></label>
           <button class="btn btn--secondary">Subscribe</button>
         </div>
       </section>
     </article>
+    <section class="container">
+      <form class="container__form">
+        <i class="container__icon fa-solid fa-magnifying-glass fa-lg"></i>
+        <input class="container__input" type="text" placeholder="Search..." id="search" name="search">
+        <i class="container__icon container__icon--remove fa-solid fa-circle-xmark"></i>
+      </form>
+      <p class="container__title">Quick Links</p>
+    </section>
   </main>
   <footer class="footer">
     <nav class="nav">
