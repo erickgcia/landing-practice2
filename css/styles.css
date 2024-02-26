@@ -5,6 +5,9 @@
   --gray: #a9a3a3;
   --darkGray: #424141;
   --orange: #ffa600;
+  --purple: #6a359c;
+  --sunset: linear-gradient(#f06553 0%, #fff474 100%);;
+  --blue: #001836;
   --fontStack: 'Roboto', sans-serif;
   --fontSize-xxs: clamp(0.75rem, 2vw, 1rem);
   --fontSize-xs: clamp(0.85rem, 2.5vw, 1.125rem);
@@ -32,6 +35,10 @@ body {
   height: 100dvh;
   max-width: 100%;
   text-transform: uppercase;
+  &.header--pages {
+    background-color: var(--lightBlack);
+    height: fit-content;
+  }
   .header__section {
     display: flex;
     align-items: center;
@@ -293,6 +300,13 @@ body {
       height: 700px;
     }
   }
+  &.card--prices {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    gap: 3rem;
+    height: 400px;
+  }
   .card__title {
     font-family: "Roboto Condensed", sans-serif;
     font-size: var(--fontSize-lg);
@@ -309,10 +323,39 @@ body {
     font-size: var(--fontSize-xs);
     text-wrap: balance;
     line-height: 1.25;
-    overflow-x: scroll;
+    &.card__txt--prices {
+      padding-left: 2.5rem;
+    }
   }
   .card__span {
     color: var(--orange);
+  }
+  .card__icon {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    color: var(--darkGray);
+  }
+  .card__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    background-color: var(--lightBlack);
+    color: var(--white);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    &.card__wrapper--purple {
+      background-color: var(--purple);
+    }
+    &.card__wrapper--sunset {
+      background: var(--sunset);
+    }
+    &.card__wrapper--blue {
+      background-color: var(--blue);
+    }
   }
 }
 
@@ -631,4 +674,45 @@ body {
   justify-content: center;
   background-color: var(--lightBlack);
   padding: 1.5rem;
+}
+
+.prices {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 100%;
+  padding: 4rem 2rem;
+  .prices__section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    &.prices__section--reverse {
+      flex-direction: row-reverse;
+    }
+    @media screen and (width <= 1024px) {
+      flex-direction: column-reverse;
+    }
+    .prices__box {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      width: min(100%, 750px);
+      .prices__box-title {
+        font-size: var(--fontSize-lg);
+        font-family: 'Roboto Condensed', sans-serif;
+        text-wrap: balance;
+      }
+      .prices__box-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        font-size: var(--fontSize-xs);
+        padding-left: 1rem;
+        .prices__box-item {
+          list-style-image: url(../img/check-circle.svg);
+        }
+      }
+    }
+  }
 }
