@@ -1,59 +1,69 @@
-const searchIcon = document.querySelector('.nav__icon')
-const container = document.querySelector('.container')
+const searchIcons = document.querySelectorAll('.nav__icon');
+const containers = document.querySelectorAll('.container');
 
-searchIcon.addEventListener('click', () => {
-  toggleClass(container, 'container--toggle')
-})
+searchIcons.forEach((icon, index) => {
+  icon.addEventListener('click', () => {
+    toggleClass(containers[index], 'container--toggle');
+  });
+});
 
 function toggleClass(element, cssClass) {
-  element.classList.toggle(cssClass)
+  element.classList.toggle(cssClass);
 }
 
-const arrayLinks = ['Living Rooms', 'Discounts', 'Reviews']
+const arrayLinks = ['Living Rooms', 'Discounts', 'Reviews'];
 
-function listCreator(arr) {
-  const ul = document.createElement('ul')
+function listCreator(container, arr) {
+  const ul = document.createElement('ul');
   
   arr.forEach(item => {
-    const li = document.createElement('li')
-    const a = document.createElement('a')
+    const li = document.createElement('li');
+    const a = document.createElement('a');
 
-    a.href = `#${item.toLowerCase()}`
+    a.href = `#${item.toLowerCase()}`;
     a.innerText = item;
-    li.appendChild(a)
-    ul.appendChild(li)
-  })
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
 
-  container.appendChild(ul)
+  container.appendChild(ul);
 
-  return ul
+  return ul;
 }
 
-const recList = listCreator(arrayLinks)
-recList.classList.add('recommendations')
+containers.forEach(container => {
+  const recList = listCreator(container, arrayLinks);
+  recList.classList.add('recommendations');
 
-const recItems = Array.from(recList.children)
-recItems.forEach(item => {
-  item.classList.add('recommendations__item')
-  const recLink = item.firstChild
-  recLink.classList.add('recommendations__link')
-})
+  const recItems = Array.from(recList.children);
+  recItems.forEach(item => {
+    item.classList.add('recommendations__item');
+    const recLink = item.firstChild;
+    recLink.classList.add('recommendations__link');
+  });
+});
 
-const searchInput = document.querySelector('.container__input')
-const removeIcon = document.querySelector('.container__icon--remove')
+const searchInputs = document.querySelectorAll('.container__input');
+const removeIcons = document.querySelectorAll('.container__icon--remove');
 
-searchInput.addEventListener('input', () => {
-  if(searchInput.value) {
-    removeIcon.classList.add('icon--show')
-  } else {
-    removeIcon.classList.remove('icon--show')
-  }
-})
+searchInputs.forEach((input, index) => {
+  input.addEventListener('input', () => {
+    const icon = removeIcons[index];
+    if (input.value) {
+      icon.classList.add('icon--show');
+    } else {
+      icon.classList.remove('icon--show');
+    }
+  });
+});
 
-removeIcon.addEventListener('click', () => {
-  searchInput.value = ''
-  removeIcon.classList.remove('icon--show')
-})
+removeIcons.forEach((icon, index) => {
+  icon.addEventListener('click', () => {
+    const input = searchInputs[index];
+    input.value = '';
+    icon.classList.remove('icon--show');
+  });
+});
 
 const testimonialSection = document.querySelector('.testimonials__section')
 const testimonialBtns = document.querySelectorAll('.testimonials__slider-btn')
@@ -79,20 +89,32 @@ const usersData = [
   }
 ]
 
-const cardTwo = duplicateElement(testCards[0], testimonialSection);
-modifyCard(cardTwo, usersData, '002');
-
-const cardThree = duplicateElement(testCards[0], testimonialSection);
-modifyCard(cardThree, usersData, '003');
-testCards = [...testCards, cardTwo, cardThree]
-
 function duplicateElement(el, parent) {
-  const newElement = el.cloneNode(true);
-  parent.appendChild(newElement);
-  newElement.style.display = 'none'
-  return newElement
+  return new Promise((resolve, reject) => {
+    if(el) {
+      const newElement = el.cloneNode(true);
+      parent.appendChild(newElement);
+      newElement.style.display = 'none'
+      resolve(newElement)
+    } else {
+      reject('Funcion no ejecutada debido a no estar en la página principal.')
+    }
+  })
 }
 
+async function setUpNewCards() {
+  try {
+    const cardTwo = await duplicateElement(testCards[0], testimonialSection);
+    modifyCard(cardTwo, usersData, '002');    
+    const cardThree = await duplicateElement(testCards[0], testimonialSection);
+    modifyCard(cardThree, usersData, '003');
+    testCards = [...testCards, cardTwo, cardThree]
+  } catch(error) {
+    console.warn(error)
+  }
+}
+
+setUpNewCards()
 
 function modifyCard(card, data, id) {
   const img = card.children[0]
@@ -111,7 +133,6 @@ function modifyCard(card, data, id) {
     card.setAttribute('data-card', findUserData.cardNum)
   }
 }
-
 
 function updateActiveBtn(newActiveBtn) {
   const activeBtn = document.querySelector(".testimonials__slider-btn--active");
