@@ -175,7 +175,7 @@ testimonialBtns.forEach(btn => {
   });
 });
 
-
+const projectSection = document.querySelector('.projects')
 const projectBoxes = document.querySelectorAll('.projects__wrapper')
 let badges = []
 
@@ -240,8 +240,3 @@ async function assignTagClasses(badges) {
 createBadgesArray(projectBoxes)
 getDataTags(projectBoxes)
 assignTagClasses(badges)
-
-/* function createModal() {
-  const modal = document.createElement('div')
-
-} */
