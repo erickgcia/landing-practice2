@@ -742,6 +742,7 @@ body {
 }
 
 .projects {
+  cursor: pointer;
   display: grid;
   padding: 3rem 3rem 6rem 3rem;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -756,6 +757,7 @@ body {
     text-transform: uppercase;
   }
   .projects__wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: min(500px, 90%);
@@ -792,3 +794,21 @@ body {
     }
   }
 }
+
+.badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -5px;
+  right: -5px;
+  border-radius: 10px;
+  width: 40px;
+  aspect-ratio: 1;
+  background-color: var(--white);
+  .badge__icon {
+    color: var(--orange);
+  }
+}
+
+/* .modal {} */
