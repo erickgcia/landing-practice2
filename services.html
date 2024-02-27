@@ -31,7 +31,7 @@
           <li class="list__item"><a class="list__link" href="#">Support</a></li>
           <li class="list__item"><a class="list__link" href="#">FAQ</a></li>
         </ul>
-        <i class="nav__icon fa-solid fa-magnifying-glass fa-lg"></i>
+        <i class="nav__icon fa-solid fa-magnifying-glass fa-lg" aria-role="button" aria-label="Search around the page"></i>
       </nav>
     </section>
   </header>
@@ -102,8 +102,8 @@
       <search>
         <form class="container__form">
           <i class="container__icon fa-solid fa-magnifying-glass fa-lg"></i>
-          <input class="container__input" type="text" placeholder="Search..." id="search" name="search">
-          <i class="container__icon container__icon--remove fa-solid fa-circle-xmark"></i>
+          <label for="search"></label><input class="container__input" type="text" placeholder="Search..." id="search" name="search"></label>
+          <i class="container__icon container__icon--remove fa-solid fa-circle-xmark" aria-role="button" aria-label="Remove typing from the input"></i>
         </form>
       </search>
       <p class="container__title">Quick Links</p>
