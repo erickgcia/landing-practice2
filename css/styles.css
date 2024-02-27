@@ -740,3 +740,55 @@ body {
     }
   }
 }
+
+.projects {
+  display: grid;
+  padding: 3rem 3rem 6rem 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  place-items: center;
+  gap: 3rem;
+  .projects__title {
+    letter-spacing: 1px;
+    grid-area: -1/ -1/ 1 / 1;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    font-size: var(--fontSize-xl);
+    text-transform: uppercase;
+  }
+  .projects__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: min(500px, 90%);
+    height: 200px;
+    background-color: var(--gray);
+    border-radius: 10px;
+    box-shadow: var(--black) 0px 0px 5px 0px;
+    margin-block: 4rem;
+    .projects__wrapper-img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .projects__info {
+      width: 100%;
+      background-color: var(--lightBlack);
+      color: var(--white);
+      padding: 1rem;
+      text-align: center;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      .projects__info-title {
+        letter-spacing: 3px;
+        color: var(--orange);
+        font-size: var(--fontSize-md);
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 500;
+        padding-bottom: 1rem;
+      }
+      .projects__info-txt {
+        font-size: var(--fontSize-xxs);
+        text-wrap: balance;
+      }
+    }
+  }
+}
