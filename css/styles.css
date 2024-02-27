@@ -269,6 +269,7 @@ body {
   padding: 3rem 1.5rem;
   background: var(--white);
   &.card--transparent {
+    cursor: pointer;
     background: rgba(255, 255, 255, 0.7);
     align-items: center;
     border-bottom: 7px solid var(--orange);
@@ -698,27 +699,44 @@ body {
     @media screen and (width <= 1024px) {
       flex-direction: column;
     }
-    .prices__box {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-      width: min(100%, 750px);
-      padding-bottom: 2rem;
-      .prices__box-title {
-        font-size: var(--fontSize-lg);
-        font-family: 'Roboto Condensed', sans-serif;
-        text-wrap: balance;
-      }
-      .prices__box-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        font-size: var(--fontSize-xs);
-        padding-left: 1rem;
-        .prices__box-item {
-          list-style-image: url(../img/check-circle.svg);
-        }
-      }
+  }
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: min(100%, 750px);
+  padding-bottom: 2rem;
+  .accordion__title {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: var(--fontSize-lg);
+    font-family: 'Roboto Condensed', sans-serif;
+    border: 1px solid var(--gray);
+    box-shadow: 0px 5px 10px 0px var(--black);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    &::marker {
+      color: var(--blue);
+    }
+    &.accordion__title--red::marker {
+      color: var(--red);
+    }
+    &.accordion__title--purple::marker {
+      color: var(--purple);
+    }
+  }
+  .accordion__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: var(--fontSize-xs);
+    padding-top: 2rem;
+    padding-left: 1rem;
+    .accordion__list-item {
+      font-weight: 500;
+      list-style-image: url(../img/check-circle.svg);
     }
   }
 }
