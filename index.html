@@ -26,7 +26,7 @@
           <li class="list__item"><a class="list__link" href="index.html">Home</a></li>
           <li class="list__item"><a class="list__link" href="services.html">Services</a></li>
           <li class="list__item"><a class="list__link" href="#">About Us</a></li>
-          <li class="list__item"><a class="list__link" href="#">Projects</a></li>
+          <li class="list__item"><a class="list__link" href="projects.html">Projects</a></li>
           <li class="list__item"><a class="list__link" href="#">Contact</a></li>
           <li class="list__item"><a class="list__link" href="#">Support</a></li>
           <li class="list__item"><a class="list__link" href="#">FAQ</a></li>
@@ -71,7 +71,9 @@
     <article class="work">
       <h5 class="work__title">Our Work</h5>
       <section class="work__section">
-        <img class="work__section-img" src="img/main-interior-design.jpg" alt="">
+        <a href="projects.html">
+          <img class="work__section-img" src="img/main-interior-design.jpg" alt="">
+        </a>
         <div class="card card--transparent card--absolute">
           <p class="card__title">Project Name <span class="card__span"># 1</span></p>
           <p class="card__txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, beatae!</p>
@@ -132,11 +134,13 @@
       </section>
     </article>
     <section class="container">
-      <form class="container__form">
-        <i class="container__icon fa-solid fa-magnifying-glass fa-lg"></i>
-        <input class="container__input" type="text" placeholder="Search..." id="search" name="search">
-        <i class="container__icon container__icon--remove fa-solid fa-circle-xmark"></i>
-      </form>
+      <search>
+        <form class="container__form">
+          <i class="container__icon fa-solid fa-magnifying-glass fa-lg"></i>
+          <input class="container__input" type="text" placeholder="Search..." id="search" name="search">
+          <i class="container__icon container__icon--remove fa-solid fa-circle-xmark"></i>
+        </form>
+      </search>
       <p class="container__title">Quick Links</p>
     </section>
   </main>

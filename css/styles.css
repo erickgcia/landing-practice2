@@ -6,7 +6,7 @@
   --darkGray: #424141;
   --orange: #ffa600;
   --purple: #6a359c;
-  --red: linear-gradient(#f06553 0%, #fff474 100%);;
+  --red: #d81919;
   --blue: #001836;
   --fontStack: 'Roboto', sans-serif;
   --fontSize-xxs: clamp(0.75rem, 2vw, 1rem);
@@ -269,6 +269,7 @@ body {
   padding: 3rem 1.5rem;
   background: var(--white);
   &.card--transparent {
+    cursor: pointer;
     background: rgba(255, 255, 255, 0.7);
     align-items: center;
     border-bottom: 7px solid var(--orange);
@@ -698,27 +699,114 @@ body {
     @media screen and (width <= 1024px) {
       flex-direction: column;
     }
-    .prices__box {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-      width: min(100%, 750px);
-      padding-bottom: 2rem;
-      .prices__box-title {
-        font-size: var(--fontSize-lg);
+  }
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: min(100%, 750px);
+  padding-bottom: 2rem;
+  .accordion__title {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: var(--fontSize-lg);
+    font-family: 'Roboto Condensed', sans-serif;
+    border: 1px solid var(--gray);
+    box-shadow: 0px 5px 10px 0px var(--black);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    &::marker {
+      color: var(--blue);
+    }
+    &.accordion__title--red::marker {
+      color: var(--red);
+    }
+    &.accordion__title--purple::marker {
+      color: var(--purple);
+    }
+  }
+  .accordion__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: var(--fontSize-xs);
+    padding-top: 2rem;
+    padding-left: 1rem;
+    .accordion__list-item {
+      font-weight: 500;
+      list-style-image: url(../img/check-circle.svg);
+    }
+  }
+}
+
+.projects {
+  cursor: pointer;
+  display: grid;
+  padding: 3rem 3rem 6rem 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  place-items: center;
+  gap: 3rem;
+  .projects__title {
+    letter-spacing: 1px;
+    grid-area: -1/ -1/ 1 / 1;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    font-size: var(--fontSize-xl);
+    text-transform: uppercase;
+  }
+  .projects__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: min(500px, 90%);
+    height: 200px;
+    background-color: var(--gray);
+    border-radius: 10px;
+    box-shadow: var(--black) 0px 0px 5px 0px;
+    margin-block: 4rem;
+    .projects__wrapper-img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .projects__info {
+      width: 100%;
+      background-color: var(--lightBlack);
+      color: var(--white);
+      padding: 1rem;
+      text-align: center;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      .projects__info-title {
+        letter-spacing: 3px;
+        color: var(--orange);
+        font-size: var(--fontSize-md);
         font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 500;
+        padding-bottom: 1rem;
+      }
+      .projects__info-txt {
+        font-size: var(--fontSize-xxs);
         text-wrap: balance;
       }
-      .prices__box-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        font-size: var(--fontSize-xs);
-        padding-left: 1rem;
-        .prices__box-item {
-          list-style-image: url(../img/check-circle.svg);
-        }
-      }
     }
+  }
+}
+
+.badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -5px;
+  right: -5px;
+  border-radius: 10px;
+  width: 40px;
+  aspect-ratio: 1;
+  background-color: var(--white);
+  .badge__icon {
+    color: var(--orange);
   }
 }

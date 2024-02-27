@@ -174,3 +174,69 @@ testimonialBtns.forEach(btn => {
     });
   });
 });
+
+const projectSection = document.querySelector('.projects')
+const projectBoxes = document.querySelectorAll('.projects__wrapper')
+let badges = []
+
+function createBadgesArray(elements) {
+  for(let element of elements) {
+    const badge = document.createElement('div')
+    const icon = document.createElement('i')
+    element.append(badge)
+    badge.classList.add('badge')
+    badge.append(icon)
+    badges.push(badge)
+  }
+  return badges
+}
+
+function getDataTags(containers) {
+  return new Promise((resolve, reject) => {
+    const dataTags = []
+    containers.forEach(container => {
+      const tagInfo = container.getAttribute('data-tag')
+      dataTags.push(tagInfo)
+    })
+
+    if(dataTags.length > 0) {
+      resolve(dataTags)
+    } else {
+      reject('Elemento no encontrado.')
+    }
+  })
+}
+
+async function assignTagClasses(badges) {
+  try {
+    const dataTags = await getDataTags(projectBoxes)
+
+    const top = ['badge__icon', 'fa-solid', 'fa-star']
+    const design = ['badge__icon', 'fa-solid', 'fa-pen-nib']
+    const interior = ['badge__icon', 'fa-solid', 'fa-house']
+
+    badges.forEach((badge, index) => {
+      const icon = badge.children[0]
+      const tagInfo = dataTags[index]
+      switch(tagInfo) {
+        case 'top':
+          icon.classList.add(...top)
+          break
+        case 'design':
+          icon.classList.add(...design)
+          break
+        case 'interior':
+          icon.classList.add(...interior)
+          break
+        default:
+          return
+      }
+    })
+  } catch(error) {
+    console.log(error)
+  }
+}
+
+createBadgesArray(projectBoxes)
+getDataTags(projectBoxes)
+assignTagClasses(badges)
