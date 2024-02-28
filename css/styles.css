@@ -9,6 +9,7 @@
   --red: #d81919;
   --blue: #001836;
   --fontStack: 'Roboto', sans-serif;
+  --fontSize-3xs: clamp(0.4rem, 1.5vw, 0.75rem);
   --fontSize-xxs: clamp(0.75rem, 2vw, 1rem);
   --fontSize-xs: clamp(0.85rem, 2.5vw, 1.125rem);
   --fontSize-sm: clamp(1rem, 3vw, 1.25rem);
@@ -185,7 +186,19 @@ body {
     font-weight: 500;
     .list__link {
       text-decoration: none;
+      width: 50px;
       color: var(--white);
+      white-space: nowrap;
+    }
+  }
+  &.list--breakpoint {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    font-size: var(--fontSize-3xs);
+    z-index: 3;
+    @media screen and (max-width: 1024px) {
+      display: flex;
     }
   }
 }
