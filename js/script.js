@@ -263,3 +263,9 @@ async function assignTagClasses(badges) {
 createBadgesArray(projectBoxes)
 getDataTags(projectBoxes)
 assignTagClasses(badges)
+
+const returnTopBtn = document.querySelector('scroll-bubble')
+
+returnTopBtn.addEventListener('click', () => {
+
+})
