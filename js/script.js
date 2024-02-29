@@ -264,8 +264,24 @@ createBadgesArray(projectBoxes)
 getDataTags(projectBoxes)
 assignTagClasses(badges)
 
-const returnTopBtn = document.querySelector('scroll-bubble')
+const returnTopBtn = document.querySelector('.scroll-bubble');
+
+window.addEventListener('scroll', () => {
+  const iconRect = returnTopBtn.getBoundingClientRect();
+  const bodyRect = document.body.getBoundingClientRect();
+
+  if (!iconRect.top <= bodyRect.bottom && iconRect.bottom >= bodyRect.top) {
+    returnTopBtn.style.display = 'flex';
+  }
+});
+
+function returnToTheTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
 
 returnTopBtn.addEventListener('click', () => {
-
+  returnToTheTop()
 })
