@@ -31,13 +31,13 @@
           <li class="list__item"><a class="list__link" href="#">Support</a></li>
           <li class="list__item"><a class="list__link" href="#">FAQ</a></li>
         </ul>
-        <i class="nav__icon fa-solid fa-magnifying-glass fa-lg"></i>
+        <i class="nav__icon fa-solid fa-magnifying-glass fa-lg" aria-role="button" aria-label="Search around the page"></i>
       </nav>
     </section>
     <section class="header__section header__section--column">
       <h1 class="header__section-title">Create and Design your Dream Home</h1>
       <h2 class="header__section-title header__section-title--small">Let us design your new and minimalistic living space</h2>
-      <button class="btn btn--primary">More Info</button>
+      <button class="btn btn--primary" aria-label="More information about creating and designing your dream home">More Info</button>
     </section>
     <video class="header__video" autoplay muted loop>
       <source src="video/main-video.mp4" type="video/mp4">
@@ -137,8 +137,8 @@
       <search>
         <form class="container__form">
           <i class="container__icon fa-solid fa-magnifying-glass fa-lg"></i>
-          <input class="container__input" type="text" placeholder="Search..." id="search" name="search">
-          <i class="container__icon container__icon--remove fa-solid fa-circle-xmark"></i>
+          <label for="search"></label><input class="container__input" type="text" placeholder="Search..." id="search" name="search"></label>
+          <i class="container__icon container__icon--remove fa-solid fa-circle-xmark" aria-role="button" aria-label="Remove typing from the input"></i>
         </form>
       </search>
       <p class="container__title">Quick Links</p>
@@ -158,5 +158,8 @@
       </ul>
     </nav>
   </footer>
+  <div class="scroll-bubble" aria-role="button" aria-label="Button to return to the top of the page">
+    <i class="scroll-bubble__icon fa-solid fa-chevron-up fa-xl"></i>
+  </div>
 </body>
 </html>

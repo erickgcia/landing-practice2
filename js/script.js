@@ -1,5 +1,7 @@
 const searchIcons = document.querySelectorAll('.nav__icon');
 const containers = document.querySelectorAll('.container');
+const breakPointMediaQuery = window.matchMedia('(max-width: 1024px)')
+const navList = document.querySelector('.list')
 
 searchIcons.forEach((icon, index) => {
   icon.addEventListener('click', () => {
@@ -12,6 +14,19 @@ function toggleClass(element, cssClass) {
 }
 
 const arrayLinks = ['Living Rooms', 'Discounts', 'Reviews'];
+
+function toggleIconClass(el) {
+  if(breakPointMediaQuery.matches) {
+    el.forEach(icon => {
+      icon.classList.remove('fa-magnifying-glass')
+      icon.classList.add('fa-bars')
+    })
+  } else {
+    return
+  }
+}
+
+toggleIconClass(searchIcons)
 
 function listCreator(container, arr) {
   const ul = document.createElement('ul');
@@ -42,6 +57,14 @@ containers.forEach(container => {
     recLink.classList.add('recommendations__link');
   });
 });
+
+if(breakPointMediaQuery.matches) {
+  containers.forEach(container => {
+    container.appendChild(navList)
+    navList.classList.add('list--breakpoint')
+  })
+}
+
 
 const searchInputs = document.querySelectorAll('.container__input');
 const removeIcons = document.querySelectorAll('.container__icon--remove');
@@ -240,3 +263,25 @@ async function assignTagClasses(badges) {
 createBadgesArray(projectBoxes)
 getDataTags(projectBoxes)
 assignTagClasses(badges)
+
+const returnTopBtn = document.querySelector('.scroll-bubble');
+
+window.addEventListener('scroll', () => {
+  const iconRect = returnTopBtn.getBoundingClientRect();
+  const bodyRect = document.body.getBoundingClientRect();
+
+  if (!iconRect.top <= bodyRect.bottom && iconRect.bottom >= bodyRect.top) {
+    returnTopBtn.style.display = 'flex';
+  }
+});
+
+function returnToTheTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+
+returnTopBtn.addEventListener('click', () => {
+  returnToTheTop()
+})
