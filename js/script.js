@@ -96,7 +96,7 @@ const usersData = [
   {
     id: '002',
     cardNum: '2',
-    img: '../img/client-portrait-2.jpg',
+    img: './img/client-portrait-2.jpg',
     name: 'Amanda Brooks',
     tags: 'Architect | Company Name',
     txt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni, officia magnam ad odit alias unde temporibus veniam sit totam exercitationem nam ipsa fugiat non eaque doloremque quibusdam, debitis nobis reprehenderit eveniet. Enim fugiat mollitia voluptatem quisquam assumenda ad animi.'
@@ -105,7 +105,7 @@ const usersData = [
   {
     id: '003',
     cardNum: '3',
-    img: '../img/client-portrait-3.jpg',
+    img: './img/client-portrait-3.jpg',
     name: 'Leyla Lee',
     tags: 'Designer | Company Name',
     txt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita magni, officia magnam ad odit alias unde temporibus veniam sit totam exercitationem nam ipsa fugiat non eaque doloremque quibusdam, debitis nobis reprehenderit eveniet. Enim fugiat mollitia voluptatem quisquam assumenda ad animi.'
